@@ -1,0 +1,66 @@
+[
+    {
+      "precio": 1100,
+      "id": 1,
+      "nombre": "Remera Paulo",
+      "img": "img/remera paulo.jfif",
+      "talles": "2 al 5",
+      "descripcion": "Algodón"
+    },
+    {
+        "precio": 3960,
+        "id": 2,
+        "nombre": "Buzo Bear",
+        "img": "img/buzo bear.jfif",
+        "talles": "6 al 16",
+        "descripcion": "Piel corderito bifaz"
+    },
+    {
+        "precio": 2100,
+        "id": 3,
+        "nombre": "Ajuar Mitai",
+        "img": "img/ajuar bandana.jfif",
+        "talles": "2",
+        "descripcion": "Con bandana"
+    },
+    {
+        "precio": 1980,
+        "id": 4,
+        "nombre": "Buzo camiseta",
+        "img": "img/buzo camiseta.jfif",
+        "talles": "4 al 10",
+        "descripcion": "Lanilla"
+    },
+    {
+        "precio": 980,
+        "id": 5,
+        "nombre": "Nody Ginna",
+        "img": "img/body ginna.jpg",
+        "talles": "0 al 3",
+        "descripcion": "Hola "
+    },
+    {
+        "precio": 1280,
+        "id": 6,
+        "nombre": "Remera Clara",
+        "img": "img/clara.jpg",
+        "talles": "2 al 6",
+        "descripcion": "Lanilla"
+    },
+    {
+        "precio": 2980,
+        "id": 7,
+        "nombre": "Tapado Bruno",
+        "img": "img/bruno.jpg",
+        "talles": "2 al 10",
+        "descripcion": "Frizado"
+    }, 
+    {
+        "precio": 2580,
+        "id": 7,
+        "nombre": "Pantalón Ciro",
+        "img": "img/ciro.jpg",
+        "talles": "1 al 10",
+        "descripcion": "Gabardina"
+    }
+  ]

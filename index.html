@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light fondoGradiente">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="img/TATETI png.png" alt="" width="80" height="64" class="d-inline-block align-text-top"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li hidden class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li hidden class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li hidden class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li hidden class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <h1 class="presentacion">BIENVENIDOS A NUESTRA TIENDA NUBE</h1>
+    </header>
+
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acción</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody id="items"></tbody>
+        <tfoot>
+          <tr id="footer">
+            <th scope="row" colspan="5">El carrito se encuentra vacío - vamos a comprar!</th>
+          </tr>
+        </tfoot>
+      </table>
+
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirmar transacción</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="form" class="col-md-12" action="">
+              <input required class="m-2 col-md-12 form-control-lg" type="text" name="name" id=""  placeholder="Ingrese su nombre">
+              <input required class="m-2 col-md-12 form-control-lg" type="text" name="direccion" id="" placeholder="Ingrese su direccion" title="">
+              <input required class="m-2 col-md-12 form-control-lg" type="email" name="email" id="" placeholder="Ingrese su email" title="">
+              <select required class="form-control-lg" name="lugar" id="seleccionProvincia">
+                <option disabled selected value="">Provincia</option>
+              </select>
+              <input required class="m-2 col-md-4 form-control-lg" type="text" inputmode="numeric" maxlength="4" name="cp" id="cp" placeholder="Código Postal">
+
+              <hr>
+
+              <input required class="m-2 col-md-12 form-control-lg" type="text" name="nombre" id="titular"  pattern="[a-zA-Z /s]{1,100}" placeholder="Nombre del titular de la tarjeta" title="Ingrese el nombre sin carácteres especiales (ej; *, &, #)">
+              <input required class="m-2 col-md-12 form-control-lg" type="text" inputmode="numeric" name="tarjeta" id="tarjeta" pattern="[0-9]{16}" placeholder="Ingrese los dígitos de la tarjeta de crédito" title="Ingrese los 16 numeros de la tarjeta sin espacios ni guiones.">
+              <select required class="form-control-lg" name="mes" id="seleccionMes">
+                <option disabled selected value="">Mes</option>
+              </select>
+              <select required class="form-control-lg" name="anio" id="seleccionAnio">
+                <option disabled selected value="">Año</option>
+              </select>
+              <input required class="m-2 col-md-4 form-control-lg" type="text" inputmode="numeric" minlength="3" maxlength="3" name="codigo" id="codigo" placeholder="XXX">
+              <div id="" class="modal-footer">
+                <p id="total"></p>
+                <input type="submit" id="button" value="Pagar" class="btn btn-primary">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              </div>
+              </form> 
+
+              <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+              
+              <script type="text/javascript">
+                emailjs.init('DuLK3mwEy6LXKt8kF')
+              </script>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div id="productos_container" class="row"></div>
+
+    </div>
+
+    <template id="template-card">
+      <div class="col-12 mb-2 col-md-4">
+        <div class="card">
+          <img src="" alt="" class="img-card-top">
+          <div class="card-body">
+            <h4>Titulo</h4>
+            <h6>descripcion</h6>
+            <p>precio</p>
+            <button class="btn btn-dark botonAgregar">Añadir al carrito</button>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">talles</small>
+        </div>
+        </div>
+      </div>
+    </template>
+
+    
+    <template id="template-footer">
+      <th scope="row" colspan="2">Total productos</th>
+      <td class="cantidadTotal">10</td>
+      <td>
+          <button class="btn btn-danger btn-sm" id="vaciarCarrito">
+              Vaciar carrito
+          </button>
+
+          <button class="btn btn-danger btn-sm" id="botonComprar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Comprar
+        </button>
+      </td>
+      <td class="font-weight-bold">$<span class="precioFinal">5000</span></td>
+  </template>
+  
+  <template id="template-carrito">
+    <tr>
+      <th scope="row">id</th>
+      <td class="title">Café</td>
+      <td class="cant">1</td>
+      <td>
+          <button class="btn btn-info btn-sm mas">
+              +
+          </button>
+          <button class="btn btn-danger btn-sm menos">
+              -
+          </button>
+      </td>
+      <td>$ <span>500</span></td>
+    </tr>
+  </template>
+
+  <footer class="fondoGradiente">
+    <p class="footerText">Todos los derechos reservados</p>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
